@@ -11,6 +11,8 @@
 		D6AC785E2B61852B00629BE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC785D2B61852B00629BE8 /* ContentView.swift */; };
 		D6AC78602B61852D00629BE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6AC785F2B61852D00629BE8 /* Assets.xcassets */; };
 		D6AC78632B61852D00629BE8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6AC78622B61852D00629BE8 /* Preview Assets.xcassets */; };
+		D6AC786F2B6186BE00629BE8 /* OldTVShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = D6AC786E2B6186BE00629BE8 /* OldTVShader.metal */; };
+		D6AC78712B61870900629BE8 /* VT323-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6AC78702B61870900629BE8 /* VT323-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,9 @@
 		D6AC785D2B61852B00629BE8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D6AC785F2B61852D00629BE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6AC78622B61852D00629BE8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D6AC786E2B6186BE00629BE8 /* OldTVShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = OldTVShader.metal; sourceTree = "<group>"; };
+		D6AC78702B61870900629BE8 /* VT323-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VT323-Regular.ttf"; sourceTree = "<group>"; };
+		D6AC78722B61871500629BE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +56,11 @@
 		D6AC785A2B61852B00629BE8 /* OldTV */ = {
 			isa = PBXGroup;
 			children = (
+				D6AC78722B61871500629BE8 /* Info.plist */,
+				D6AC78702B61870900629BE8 /* VT323-Regular.ttf */,
 				D6AC785B2B61852B00629BE8 /* OldTVApp.swift */,
 				D6AC785D2B61852B00629BE8 /* ContentView.swift */,
+				D6AC786E2B6186BE00629BE8 /* OldTVShader.metal */,
 				D6AC785F2B61852D00629BE8 /* Assets.xcassets */,
 				D6AC78612B61852D00629BE8 /* Preview Content */,
 			);
@@ -126,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6AC78632B61852D00629BE8 /* Preview Assets.xcassets in Resources */,
+				D6AC78712B61870900629BE8 /* VT323-Regular.ttf in Resources */,
 				D6AC78602B61852D00629BE8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6AC786F2B6186BE00629BE8 /* OldTVShader.metal in Sources */,
 				D6AC785E2B61852B00629BE8 /* ContentView.swift in Sources */,
 				D6AC785C2B61852B00629BE8 /* OldTVApp.swift in Sources */,
 			);
@@ -275,6 +285,7 @@
 				DEVELOPMENT_TEAM = GWLC7B32AQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OldTV/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +315,7 @@
 				DEVELOPMENT_TEAM = GWLC7B32AQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OldTV/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
