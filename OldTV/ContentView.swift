@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var startDate = Date()
+    @AppStorage("date") var date = Date()
     
     var body: some View {
         VStack {
@@ -32,19 +33,33 @@ struct ContentView: View {
                         
                     }
                     
-                    Image("old-tv")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.bottom, -66)
+                    ZStack {
+                        Image("old-tv")
+                            .resizable()
+                            .scaledToFit()
+                            .padding(.bottom, -66)
+                        
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                DatePicker(selection: $date, in: ...Date.now, displayedComponents: .date) {
+                                    EmptyView()
+                                }
+                                    .accentColor(.gray)
+                                    .colorInvert()
+                                    .colorMultiply(.clear)
+                            }
+                        }
+                        .padding(.bottom, -13)
+                    }
                 }
                 .overlay(
-                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
-                        .font(.custom("VT323-Regular", size: 20))
+                    Text(date.formatted(date: .abbreviated, time: .omitted))
+                        .font(.custom("VT323-Regular", size: 25))
                         .foregroundStyle(Color(#colorLiteral(red: 0.7540688515, green: 0.7540867925, blue: 0.7540771365, alpha: 1)))
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                        .padding(.vertical, 44)
                         .padding(.leading, 65)
-                        .padding(.trailing, 150)
                         .layerEffect(
                             ShaderLibrary.oldTVShader(
                                 .float(-startDate.timeIntervalSinceNow),
@@ -70,4 +85,28 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
         )
     }
+}
+
+extension Date: RawRepresentable {
+    
+    public typealias RawValue = String
+    
+    public init?(rawValue: RawValue) {
+        guard let data = rawValue.data(using: .utf8),
+              let date = try? JSONDecoder().decode(Date.self, from: data) else {
+            return nil
+        }
+        
+        self = date
+    }
+    
+    public var rawValue: RawValue{
+        guard let data = try? JSONEncoder().encode(self),
+              let result = String(data: data,encoding: .utf8) else {
+            return ""
+        }
+        
+        return result
+    }
+    
 }
