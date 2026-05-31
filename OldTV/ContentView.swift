@@ -17,59 +17,47 @@ struct ContentView: View {
             
             GeometryReader { geo in
                 ZStack {
+                    let side = min(geo.size.width, geo.size.height)
+                    
                     TimelineView(.animation) { _ in
                         Image("tokyo")
                             .resizable()
-                            .scaledToFit()
+                            .scaledToFill()
+                            .frame(width: side - 2, height: side - 2)
+                            .clipped()
                             .blur(radius: 0.5)
+                            .opacity(0.4)
+                            .overlay {
+                                Text(date.formatted(date: .abbreviated, time: .omitted))
+                                    .font(.custom("VT323-Regular", size: 25))
+                                    .foregroundStyle(Color(#colorLiteral(red: 0.7540688515, green: 0.7540867925, blue: 0.7540771365, alpha: 1)))
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                                    .padding(.leading, 60)
+                                    .padding(.top, 60)
+                            }
                             .layerEffect(
                                 ShaderLibrary.oldTVShader(
                                     .float(-startDate.timeIntervalSinceNow),
-                                    .float2(geo.size)
+                                    .float2(side, side)
                                 ),
                                 maxSampleOffset: .zero
                             )
-                            .opacity(0.4)
-                        
                     }
                     
-                    ZStack {
-                        Image("old-tv")
-                            .resizable()
-                            .scaledToFit()
-                            .padding(.bottom, -66)
-                        
-                        VStack {
-                            Spacer()
-                            HStack {
-                                Spacer()
-                                DatePicker(selection: $date, in: ...Date.now, displayedComponents: .date) {
-                                    EmptyView()
-                                }
-                                    .accentColor(.gray)
-                                    .colorInvert()
-                                    .colorMultiply(.clear)
+                    Image("old-tv")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: side, height: side)
+                        .overlay(alignment: .bottomTrailing) {
+                            DatePicker(selection: $date, in: ...Date.now, displayedComponents: .date) {
                             }
+                            .accentColor(.gray)
+                            .colorInvert()
+                            .colorMultiply(.clear)
                         }
-                        .padding(.bottom, -13)
-                    }
+                    
                 }
-                .overlay(
-                    Text(date.formatted(date: .abbreviated, time: .omitted))
-                        .font(.custom("VT323-Regular", size: 25))
-                        .foregroundStyle(Color(#colorLiteral(red: 0.7540688515, green: 0.7540867925, blue: 0.7540771365, alpha: 1)))
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                        .padding(.leading, 65)
-                        .layerEffect(
-                            ShaderLibrary.oldTVShader(
-                                .float(-startDate.timeIntervalSinceNow),
-                                .float2(geo.size)
-                            ),
-                            maxSampleOffset: .zero
-                        )
-                )
             }
-            .aspectRatio(1, contentMode: .fit)
             
             Spacer()
         }
@@ -87,7 +75,7 @@ struct ContentView: View {
     }
 }
 
-extension Date: RawRepresentable {
+extension Date: @retroactive RawRepresentable {
     
     public typealias RawValue = String
     
@@ -109,4 +97,8 @@ extension Date: RawRepresentable {
         return result
     }
     
+}
+
+#Preview {
+    ContentView()
 }
