@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D624BFF92FCC997D00923EBA /* OldTVImageFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D624BFF82FCC997D00923EBA /* OldTVImageFrame.swift */; };
+		D6A9AF712FCE0F3E00EDC4E4 /* OldMacImageFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A9AF702FCE0F3E00EDC4E4 /* OldMacImageFrame.swift */; };
 		D6AC785C2B61852B00629BE8 /* OldTVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC785B2B61852B00629BE8 /* OldTVApp.swift */; };
 		D6AC785E2B61852B00629BE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AC785D2B61852B00629BE8 /* ContentView.swift */; };
 		D6AC78602B61852D00629BE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6AC785F2B61852D00629BE8 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		D624BFF82FCC997D00923EBA /* OldTVImageFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldTVImageFrame.swift; sourceTree = "<group>"; };
+		D6A9AF702FCE0F3E00EDC4E4 /* OldMacImageFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldMacImageFrame.swift; sourceTree = "<group>"; };
 		D6AC78582B61852B00629BE8 /* OldTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OldTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6AC785B2B61852B00629BE8 /* OldTVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldTVApp.swift; sourceTree = "<group>"; };
 		D6AC785D2B61852B00629BE8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		D6AC785A2B61852B00629BE8 /* OldTV */ = {
 			isa = PBXGroup;
 			children = (
+				D6A9AF702FCE0F3E00EDC4E4 /* OldMacImageFrame.swift */,
 				D624BFF82FCC997D00923EBA /* OldTVImageFrame.swift */,
 				D6AC78722B61871500629BE8 /* Info.plist */,
 				D6AC78702B61870900629BE8 /* VT323-Regular.ttf */,
@@ -153,6 +156,7 @@
 				D6AC785E2B61852B00629BE8 /* ContentView.swift in Sources */,
 				D6AC785C2B61852B00629BE8 /* OldTVApp.swift in Sources */,
 				D624BFF92FCC997D00923EBA /* OldTVImageFrame.swift in Sources */,
+				D6A9AF712FCE0F3E00EDC4E4 /* OldMacImageFrame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
